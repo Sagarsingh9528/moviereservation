@@ -151,7 +151,7 @@ export const forgotPassword = async (req, res) => {
 
     const resetToken = crypto.randomBytes(32).toString('hex');
 
-    // Token expires in 15 minutes
+    
     const resetTokenExpires = new Date(
       Date.now() + 15 * 60 * 1000
     );
