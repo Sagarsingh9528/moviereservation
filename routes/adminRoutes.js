@@ -22,6 +22,12 @@ import {
   updateScreenController,
   deleteScreenController,
   updateScreenStatusController,
+  createShowController,
+  getAllShowsController,
+  getShowByIdController,
+  updateShowController,
+  updateShowStatusController,
+  deleteShowController,
 } from "../controllers/adminScreenController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -65,6 +71,28 @@ router.put("/screens/:id", protect, adminOnly, updateScreenController);
 
 router.delete("/screens/:id", protect, adminOnly, deleteScreenController);
 
-router.patch("/screens/:id/status", protect, adminOnly, updateScreenStatusController);
+router.patch(
+  "/screens/:id/status",
+  protect,
+  adminOnly,
+  updateScreenStatusController,
+);
+
+router.post("/shows", protect, adminOnly, createShowController);
+
+router.get("/shows", protect, adminOnly, getAllShowsController);
+
+router.get("/shows/:id", protect, adminOnly, getShowByIdController);
+
+router.put("/shows/:id", protect, adminOnly, updateShowController);
+
+router.patch(
+  "/shows/:id/status",
+  protect,
+  adminOnly,
+  updateShowStatusController,
+);
+
+router.delete("/shows/:id", protect, adminOnly, deleteShowController);
 
 export default router;
